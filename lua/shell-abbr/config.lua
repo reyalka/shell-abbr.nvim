@@ -11,7 +11,7 @@ local default_config = {
 				enabled = false,
 			},
 			["zsh-abbrev-alias"] = {
-				enabled = true,
+				enabled = false,
 			},
 		},
 	},
