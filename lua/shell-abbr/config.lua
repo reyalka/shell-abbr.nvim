@@ -8,7 +8,7 @@ local default_config = {
 		filetype = "zsh",
 		plugins = {
 			["zsh-abbr"] = {
-				enabled = false,
+				enabled = true,
 			},
 			["zsh-abbrev-alias"] = {
 				enabled = false,
