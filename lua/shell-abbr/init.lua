@@ -27,6 +27,16 @@ function M.setup(user_config)
 			end
 		})
 	end
+
+	if M.config.zsh.plugins["zsh-abbrev-alias"].enabled then
+		local zsh = require("shell-abbr.plugins.zsh.zsh-abbrev-alias");
+		vim.api.nvim_create_autocmd("FileType", {
+			pattern = M.config.zsh.filetype,
+			callback = function()
+				zsh.apply_abbr(zsh.get_abbr_list())
+			end
+		})
+	end
 end
 
 return M
