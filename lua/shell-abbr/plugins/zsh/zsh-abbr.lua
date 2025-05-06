@@ -1,7 +1,7 @@
 local M = {}
 local system = require "shell-abbr.utils.system"
 
---- 引数で与えられた行を {name, expansion} に変換する
+---convert the given line into format {name, expansion}
 ---@param line string
 ---@return table|nil
 local function parse_abbr_line(line)
@@ -37,7 +37,6 @@ function M.get_abbr_list()
 	return abbrs
 end
 
----comment
 ---@param abbrs Abbreviation[]
 function M.apply_abbr(abbrs)
 	for _, abbr in ipairs(abbrs) do
