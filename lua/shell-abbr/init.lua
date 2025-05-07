@@ -8,10 +8,13 @@ function M.setup(user_config)
 	---@type Config
 	M.config = vim.tbl_deep_extend('force', {}, M.config, user_config or {})
 
+	local group = vim.api.nvim_create_augroup("shell-abbr", {})
+
 	if M.config.fish.enabled then
 		local fish = require("shell-abbr.plugins.fish")
 		vim.api.nvim_create_autocmd("FileType", {
 			pattern = M.config.fish.filetype,
+			group = group,
 			callback = function()
 				fish.apply_abbr(fish.get_abbr_list())
 			end
@@ -22,6 +25,7 @@ function M.setup(user_config)
 		local zsh = require("shell-abbr.plugins.zsh.zsh-abbr");
 		vim.api.nvim_create_autocmd("FileType", {
 			pattern = M.config.zsh.filetype,
+			group = group,
 			callback = function()
 				zsh.apply_abbr(zsh.get_abbr_list())
 			end
@@ -32,6 +36,7 @@ function M.setup(user_config)
 		local zsh = require("shell-abbr.plugins.zsh.zsh-abbrev-alias");
 		vim.api.nvim_create_autocmd("FileType", {
 			pattern = M.config.zsh.filetype,
+			group = group,
 			callback = function()
 				zsh.apply_abbr(zsh.get_abbr_list())
 			end
