@@ -1,20 +1,28 @@
 ---@type Config
 local default_config = {
+	-- for fish users
 	fish = {
-		enabled = true,
-		filetype = "fish"
+	  -- if using fish built-in abbr
+	  enabled = false,
+	  -- custom filetype to enable the abbr feature
+	  filetype = "fish",
 	},
+	-- for zsh users
 	zsh = {
-		filetype = "zsh",
-		plugins = {
-			["zsh-abbr"] = {
-				enabled = false,
-			},
-			["zsh-abbrev-alias"] = {
-				enabled = false,
-			},
+	  -- custom filetype to enable the abbr feature
+	  filetype = "zsh",
+	  plugins = {
+		-- if using zsh-abbr
+		["zsh-abbr"] = {
+		  enabled = false,
 		},
+		-- if using zsh-abbrev-alias
+		["zsh-abbrev-alias"] = {
+		  enabled = false,
+		},
+	  },
 	},
-}
-
-return default_config
+  }
+  
+  return default_config
+  
